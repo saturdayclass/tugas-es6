@@ -95,7 +95,7 @@ const Alarm = callback => {
     }, 6000)
 };
 
-Alarm((cake) => {
-    console.log(cake);
+Alarm((bunyi) => {
+    console.log(bunyi);
 })
 
