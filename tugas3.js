@@ -54,12 +54,12 @@ console.log(desa.nama)
 // destruching object
 
 const saya = {
-    name: "Dio",
+    jeneng: "Dio",
     umur: "16 tahun",
     hobby: ["Hiking", "Travelling", "Bermaindrum"]
 }
 
-const{name, umur} = saya;
+const{jeneng, umur} = saya;
 const [Hiking,Travelling,Bermanindrum] = saya.hobby
 console.log(Hiking);
 
@@ -108,17 +108,18 @@ pesawat((datang) => {
     console.log(datang)
 })
 
-// fetch
+fetch
 
-const element = document.getElementById("hasil");
+// photo
+const photo = document.getElementById("photo");
 
-const requestApi = async () => {
+const requestApi1 = async () => {
     try{
         const req = await fetch("https://natours-raihan.herokuapp.com/api/v1/tours")
         
-        const res = await req.json()
+        const res = await req.json();
 
-        element.innerHTML =`<h1>${res.data.data[3].secretTour.guides}</h1>`
+        photo.innerHTML =`<h1>${res.data.data[0].guides[0].photo}</h1>` 
     }
      catch(error){
          console.log(error)
@@ -126,4 +127,83 @@ const requestApi = async () => {
 }
 
 
-requestApi();
+requestApi1();
+
+// role
+
+const role = document.getElementById("role");
+
+const requestApi2 = async () => {
+    // try
+    try{
+        const req = await fetch("https://natours-raihan.herokuapp.com/api/v1/tours")
+
+        const res = await req.json();
+
+        role.innerHTML = `<h2>${res.data.data[0].guides[0].role}</h2>`
+    }
+    // error
+    catch(error){
+        console.log(error)
+    }
+};
+
+requestApi2();
+
+const tes = document.getElementById("tes")
+
+const requestApi3 = async () => {
+    // try
+    try{
+    const req = await fetch ("https://natours-raihan.herokuapp.com/api/v1/tours")
+    const res = await req.json()
+
+    tes.innerHTML = `<h3>${res.data.data[0].guides[0]._id}</h3>`
+}
+// error
+catch(error){
+    console.log(error)
+}
+}
+
+requestApi3()
+
+// name
+const name = document.getElementById("name")
+
+const requestApi4 = async () => {
+    // try
+    try{
+        const req = await fetch ("https://natours-raihan.herokuapp.com/api/v1/tours")
+        const res = await req.json()
+
+        name.innerHTML = `<h4>${res.data.data[0].guides[0].name}</h4>`
+    }
+
+    // error
+    catch(error){
+        console.log(error)
+}
+}
+
+requestApi4()
+
+// email
+const email = document.getElementById("email")
+
+const requestApi5 = async () => {
+    // try
+    try{
+        const req = await fetch ("https://natours-raihan.herokuapp.com/api/v1/tours")
+        const res = await req.json()
+
+        name.innerHTML = `<h5>${res.data.data[0].guides[0].email}</h5>`
+    }
+
+    // error
+    catch(error){
+        console.log(error)
+    }
+}
+
+requestApi5()
